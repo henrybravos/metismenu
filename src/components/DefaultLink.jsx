@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import { NavLink } from 'react-router-dom';
 
 const DefaultLink = ({
   className,
@@ -21,18 +22,18 @@ const DefaultLink = ({
   activateMe,
   children,
 }) => (
-  <a
+  <NavLink
     className={classnames(
       className,
       active && classNameActive,
       hasActiveChild && classNameHasActiveChild,
     )}
-    href={to}
+    to={to}
     onClick={hasSubMenu ? toggleSubMenu : activateMe}
     target={externalLink ? '_blank' : undefined}
   >
     {children}
-  </a>
+  </NavLink>
 );
 
 DefaultLink.defaultProps = {
